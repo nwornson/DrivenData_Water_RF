@@ -1,16 +1,14 @@
-## Second try at Driven Data competition
+## Second try at Driven Data competition.  This script will clean up the missing values by replacing them with a new label 'missing', 
+## and reduce the number of factor levels for categorical variables with too many levels.  Prediction is done using Random Forest
+## classifier.  
 
 
 
-setwd('C:/Users/Nick/Documents/Classes/Fall 18/Machine Learning/Project')
 
 trainlabels = read.csv('trainlabels.csv')
 
 train = read.csv('train.csv')
 test = read.csv('test.csv')
-
-## havent messed with: funder, num_private
-# check reduced levels for multiple representations of missing
 
 
 ## installer #######
