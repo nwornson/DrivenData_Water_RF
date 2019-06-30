@@ -4,7 +4,7 @@ library(tidyverse)
 library(randomForest)
 #update.packages('randomForest')
 
-setwd('C:/Users/Nick/Documents/Classes/Fall 18/Machine Learning/Project/second_attempt')
+setwd('second_attempt.csv')
 train = read.csv('train_proc.csv')
 labels = read.csv('trainlabels.csv')
 test = read.csv('test_proc.csv')
@@ -19,9 +19,7 @@ levels(test$date_recorded) = levels(train$date_recorded)
 levels(test$scheme_management) = levels(train$scheme_management)
 levels(test$extraction_type) = levels(train$extraction_type)
 
-### mtry, ntree, maxnode, nodesize
-
-# ntree = 800, mtry = 1?
+# parameters selected through CV
 rfmodel = randomForest(status_group ~ ., rfdf,ntree = 800,mtry = 1)
 
 preds = predict(rfmodel,newdata = test[,-1])
